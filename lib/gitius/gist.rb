@@ -6,7 +6,9 @@ class Gist < Thor
   option :public
   def create(*paths)
     paths.each do |f|
-      options['files'][File.basename(f)] = { 'content' => File.read(f).to_s }
+      options['files'] = {
+        File.basename(f) => { 'content' => File.read(f).to_s }
+      }
     end
     response = client.create_gist(options)
     puts response.html_url

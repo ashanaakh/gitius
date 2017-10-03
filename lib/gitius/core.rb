@@ -10,20 +10,14 @@ module Gitius
 
     desc 'whoami', "Return user's github nickname"
     def whoami
-      user.name
-    end
-
-    desc 'howmany', 'Return number of repositories'
-    def howmany
-      response = client.repos(user)
-      puts response.length
+      puts user.name
     rescue StandardError => e
       puts e.message
     end
 
     desc 'config', 'Set configurations for using cli'
-    def config(key, value)
-      change_configs key, value
+    def config(key, value = nil)
+      value.nil? ? puts(get_config(key)) : change_config(key, value)
     end
 
     desc 'version', 'Return gitius version'
