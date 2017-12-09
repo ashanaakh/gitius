@@ -1,5 +1,11 @@
 # Gitius
 
+[![Gem Version](https://badge.fury.io/rb/gitius.svg)][gem]
+[![Dependency Status](https://beta.gemnasium.com/badges/github.com/ashanaakh/gitius.svg)][gemnasium]
+
+[gem]: https://badge.fury.io/rb/gitius
+[gemnasium]: https://beta.gemnasium.com/projects/github.com/ashanaakh/gitius
+
 Command line interface based on GitHub official [Octokit](https://github.com/octokit/octokit.rb)
 gem and [Thor](https://github.com/erikhuda/thor) library for creating CLI on ruby.
 
