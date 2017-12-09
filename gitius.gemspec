@@ -24,9 +24,9 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'thor', '0.20.0'
 
 
-  gem.add_development_dependency 'bundler', '~> 1.16.0'
+  gem.add_development_dependency 'bundler', '~> 1.16'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.0'
-  gem.add_development_dependency 'simplecov'
-  gem.add_development_dependency 'codecov'
+  gem.add_development_dependency 'simplecov', '= 0.15.1'
+  gem.add_development_dependency 'codecov', '= 0.1.10'
 end
