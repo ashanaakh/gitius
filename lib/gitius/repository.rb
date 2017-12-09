@@ -1,7 +1,7 @@
 class Repository < Thor
   include Gitius::Helpers
 
-  desc 'create', 'Create repository'
+  desc 'create NAME', 'Create repository'
   option :description, aliases: :d, banner: '<text>'
   option :homepage, aliases: :url, banner: '<url>'
   option :private, aliases: :p
@@ -13,7 +13,7 @@ class Repository < Thor
     puts e.message
   end
 
-  desc 'delete', 'Delete repository'
+  desc 'delete NAME', 'Delete repository'
   def delete(name)
     succeed = client.delete_repo(name)
     puts succeed ? 'Repository was succfully deleted' : 'Error'
@@ -21,7 +21,7 @@ class Repository < Thor
     puts e.message
   end
 
-  desc 'info', 'Get information'
+  desc 'info NAME', 'Get information'
   option :forks, aliases: :f
   def info(name)
     puts client.forks(name) if options[:forks]
@@ -30,7 +30,7 @@ class Repository < Thor
     puts e.message
   end
 
-  desc 'fork', 'Fork repository'
+  desc 'fork NAME', 'Fork repository'
   def fork(name)
     response = client.fork(name)
     puts "#{name} forked", "url: #{response.html_url}",

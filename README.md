@@ -1,7 +1,7 @@
 # Gitius
 
 Command line interface based on GitHub official [Octokit](https://github.com/octokit/octokit.rb)
-gem and [Thor](https://github.com/erikhuda/thor) library for creating CLI on ruby
+gem and [Thor](https://github.com/erikhuda/thor) library for creating CLI on ruby.
 
 ## Installation
 
@@ -13,17 +13,21 @@ gem 'gitius'
 
 And then execute:
 
-    $ bundle
+```shell
+bundle
+```
 
 Or install it yourself as:
 
-    $ gem install gitius
+```shell
+gem install gitius
+```
 
-## Usage
+## Getting started
 
 ```shell
 gitius config token <token>
-gitius config tocken # shows your token
+gitius config token # shows your token
 gitius whoami # prints user's nickname
 ```
 

@@ -11,8 +11,8 @@ module Gitius
     desc 'whoami', "Return user's github nickname"
     def whoami
       puts user.name
-    rescue StandardError => e
-      puts e.message
+    rescue StandardError
+      puts 'Incorrect settings'
     end
 
     desc 'config', 'Set configurations for using cli'
