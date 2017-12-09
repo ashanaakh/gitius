@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Ali Shanaakh']
   gem.email         = ['ashanaakh@gmail.com']
 
-  gem.summary       = %q{ Command line interface for githib }
+  gem.summary       = %w[Command line interface for githib]
   gem.description   = ''
 
   gem.homepage      = 'https://github.com/ashanaakh/gitius'
@@ -20,10 +20,13 @@ Gem::Specification.new do |gem|
   gem.executables   = ['gitius']
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'thor', '0.20.0'
   gem.add_dependency 'octokit', '4.7.0'
+  gem.add_dependency 'thor', '0.20.0'
+
 
   gem.add_development_dependency 'bundler', '~> 1.16.0'
   gem.add_development_dependency 'rake', '~> 10.0'
   gem.add_development_dependency 'rspec', '~> 3.0'
+  gem.add_development_dependency 'simplecov'
+  gem.add_development_dependency 'codecov'
 end

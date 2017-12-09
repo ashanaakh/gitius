@@ -11,5 +11,8 @@
 # Gem build gitius.gemspec
 *.gem
 
+# Rspec
+.rspec_status
+
 # IDEA
 .idea/
