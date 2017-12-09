@@ -16,7 +16,7 @@ class Gist < Thor
 
   desc 'delete ID','Delete gist'
   def delete(id)
-    response = client.delete_repo(id)
+    response = client.delete_gist(id)
     puts response ? 'gist deleted' : 'error'
   rescue StandardError => e
     puts e.message
