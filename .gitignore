@@ -1,3 +1,4 @@
+# Default
 /.bundle/
 /.yardoc
 /_yardoc/
@@ -6,4 +7,9 @@
 /pkg/
 /spec/reports/
 /tmp/
+
+# Gem build gitius.gemspec
 *.gem
+
+# IDEA
+.idea/
