@@ -8,8 +8,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ['Ali Shanaakh']
   gem.email         = ['ashanaakh@gmail.com']
 
-  gem.summary       = %w[Command line interface for githib]
-  gem.description   = ''
+  gem.summary       = 'Command line interface for githib'
 
   gem.homepage      = 'https://github.com/ashanaakh/gitius'
 
