@@ -23,6 +23,22 @@ RSpec.describe Gitius do
     expect { Gitius::Core.start(%w[repo delete ashanaakh/test-gitius]) }.not_to output("Error\n").to_stdout
   end
 
+  it 'can fork and delete repository' do
+    Gitius::Core.start(%w[repo fork octokit/octokit.rb], debug: true)
+    expect { Gitius::Core.start(%w[repo delete ashanaakh/octokit.rb]) }
+      .not_to output("Invalid repository\n").to_stdout
+  end
+
+  it 'shows repository information' do
+    expect { Gitius::Core.start(%w[repo info octokit/octokit.rb], debug: true) }
+      .not_to output("Invalid repository\n").to_stdout
+  end
+
+  it 'can show username' do
+    expect { Gitius::Core.start(%w[whoami], debug: true) }
+      .not_to output("Incorrect settings\n").to_stdout
+  end
+
   it 'can create and delete gist' do
     File.write 'test.txt', 'text'
 

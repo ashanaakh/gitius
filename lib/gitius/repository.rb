@@ -26,8 +26,8 @@ class Repository < Thor
   def info(name)
     puts client.forks(name) if options[:forks]
     puts "last update: #{repo(name).created_at}"
-  rescue StandardError => e
-    puts e.message
+  rescue StandardError
+    puts 'Invalid repository'
   end
 
   desc 'fork NAME', 'Fork repository'
@@ -35,7 +35,7 @@ class Repository < Thor
     response = client.fork(name)
     puts "#{name} forked", "url: #{response.html_url}",
          "url: #{response.ssh_url}"
-  rescue StandardError => e
-    puts e.message
+  rescue StandardError
+    puts 'Invalid repository'
   end
 end

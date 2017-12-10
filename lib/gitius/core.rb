@@ -22,7 +22,7 @@ module Gitius
 
     desc 'version', 'Return gitius version'
     def version
-      puts "v#{VERSION}"
+      puts "v#{Gitius::VERSION}"
     end
   end
 end

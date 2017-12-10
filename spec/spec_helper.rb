@@ -1,5 +1,9 @@
 require 'rspec'
 
+RSpec.configure do |config|
+  config.before { allow($stdout).to receive(:puts) }
+end
+
 if ENV['COVERAGE'] == 'true'
   require 'simplecov'
 
