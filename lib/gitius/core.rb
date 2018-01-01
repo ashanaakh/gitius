@@ -2,15 +2,17 @@ module Gitius
   class Core < Base
     include Gitius::Helpers
 
-    desc 'repo <command>', ''
-    subtask 'repo', Repository
+    desc 'repository <command>', ''
+    subcommand 'repository', Repository
 
     desc 'gist <command>', ''
-    subtask 'gist', Gist
+    subcommand 'gist', Gist
 
     desc 'whoami', "Return user's github nickname"
+    option :name, aliases: '-n', type: :boolean
     def whoami
-      puts user.name
+      name = if options[:name] then user.name else user.login end
+      puts name
     rescue StandardError
       puts 'Incorrect settings'
     end
@@ -20,6 +22,7 @@ module Gitius
       value.nil? ? puts(get_config(key)) : change_config(key, value)
     end
 
+    map %w[--version -v] => :version
     desc 'version', 'Return gitius version'
     def version
       puts "v#{Gitius::VERSION}"

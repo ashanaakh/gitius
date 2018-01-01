@@ -2,10 +2,10 @@ class Repository < Thor
   include Gitius::Helpers
 
   desc 'create NAME', 'Create repository'
-  option :description, aliases: :d, banner: '<text>'
-  option :homepage, aliases: :url, banner: '<url>'
-  option :private, aliases: :p
-  option :auto_init, aliases: :i
+  option :description, aliases: ['-d', '--desc'], banner: '<text>'
+  option :homepage, aliases: ['--url', '-u'], banner: '<url>'
+  option :private, aliases: '-p'
+  option :auto_init, aliases: ['--init', '--auto', '-i']
   def create(name)
     response = client.create(name, options)
     puts response.html_url, response.ssh_url
