@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitius (0.2.4)
+    gitius (0.2.6)
       octokit (= 4.8.0)
       thor (= 0.20.0)
 
