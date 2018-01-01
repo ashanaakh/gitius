@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitius (0.2.4)
+    gitius (0.2.6)
       octokit (= 4.8.0)
       thor (= 0.20.0)
 
@@ -10,6 +10,7 @@ GEM
   specs:
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    bump (0.5.4)
     codecov (0.1.10)
       json
       simplecov
@@ -52,6 +53,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bump (~> 0.5.4)
   bundler (~> 1.16)
   codecov (= 0.1.10)
   gitius!
