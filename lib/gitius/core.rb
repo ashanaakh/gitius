@@ -11,10 +11,10 @@ module Gitius
     desc 'whoami', "Return user's github nickname"
     option :name, aliases: '-n', type: :boolean
     def whoami
-      name = if options[:name] then user.name else user.login end
+      name = options[:name] ? user.name : user.login
       puts name
     rescue StandardError
-      puts 'Incorrect settings'
+      show_error 'Incorrect settings'
     end
 
     desc 'config', 'Set configurations for using cli'

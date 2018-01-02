@@ -10,7 +10,7 @@ class Repository < Thor
     response = client.create(name, options)
     puts response.html_url, response.ssh_url
   rescue StandardError => e
-    puts e.message
+    show_error e.message
   end
 
   desc 'delete NAME', 'Delete repository'
@@ -18,7 +18,7 @@ class Repository < Thor
     succeed = client.delete_repo(name)
     puts succeed ? 'Repository was succfully deleted' : 'Error'
   rescue StandardError => e
-    puts e.message
+    show_error e.message
   end
 
   desc 'info NAME', 'Get information'
@@ -27,7 +27,7 @@ class Repository < Thor
     puts client.forks(name) if options[:forks]
     puts "last update: #{repo(name).created_at}"
   rescue StandardError
-    puts 'Invalid repository'
+    show_error 'Invalid repository'
   end
 
   desc 'fork NAME', 'Fork repository'
@@ -36,6 +36,6 @@ class Repository < Thor
     puts "#{name} forked", "url: #{response.html_url}",
          "url: #{response.ssh_url}"
   rescue StandardError
-    puts 'Invalid repository'
+    show_error 'Invalid repository'
   end
 end

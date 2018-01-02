@@ -38,5 +38,9 @@ module Gitius
     rescue StandardError => e
       raise e
     end
+
+    def show_error(error)
+      puts error.colorize :red
+    end
   end
 end

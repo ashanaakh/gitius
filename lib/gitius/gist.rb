@@ -11,14 +11,14 @@ class Gist < Thor
     response = client.create_gist(options)
     puts response.html_url
   rescue StandardError => e
-    puts e.message
+    show_error e.message
   end
 
-  desc 'delete ID','Delete gist'
+  desc 'delete ID', 'Delete gist'
   def delete(id)
     response = client.delete_gist(id)
     puts response ? 'gist deleted' : 'error'
   rescue StandardError => e
-    puts e.message
+    show_error e.message
   end
 end
