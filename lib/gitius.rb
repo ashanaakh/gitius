@@ -1,7 +1,7 @@
-require 'erb'
 require 'thor'
 require 'octokit'
 require 'yaml'
+require 'colorize'
 
 require 'gitius/version'
 require 'gitius/config'
