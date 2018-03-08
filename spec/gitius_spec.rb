@@ -1,5 +1,10 @@
-require 'spec_helper'
+require 'rspec'
+require 'gitius'
 require 'octokit'
+
+RSpec.configure do |config|
+  config.before { allow($stdout).to receive(:puts) }
+end
 
 RSpec.describe Gitius do
   it 'has a version number' do
@@ -39,20 +44,20 @@ RSpec.describe Gitius do
       .not_to output("Incorrect settings\n").to_stdout
   end
 
-  it 'can create and delete gist' do
-    File.write 'test.txt', 'text'
-
-    old_stdout = $stdout
-    $stdout = StringIO.new
-
-    Gitius::Core.start(%w[gist create ./test.txt])
-
-    result = $stdout.string.split('/')[-1].delete("\n")
-    $stdout = old_stdout
-
-    File.delete 'test.txt'
-
-    expect { Gitius::Core.start(['gist', 'delete', result.to_s]) }
-      .to output("gist deleted\n").to_stdout
-  end
+  # it 'can create and delete gist' do
+  #   File.write 'test.txt', 'text'
+  #
+  #   old_stdout = $stdout
+  #   $stdout = StringIO.new
+  #
+  #   Gitius::Core.start(%w[gist create ./test.txt])
+  #
+  #   result = $stdout.string.split('/')[-1].delete("\n")
+  #   $stdout = old_stdout
+  #
+  #   File.delete 'test.txt'
+  #
+  #   expect { Gitius::Core.start(['gist', 'delete', result.to_s]) }
+  #     .to output("gist deleted\n").to_stdout
+  # end
 end

@@ -2,10 +2,10 @@ class Repository < Thor
   include Gitius::Helpers
 
   desc 'create NAME', 'Create repository'
-  option :description, aliases: ['-d', '--desc'], banner: '<text>'
-  option :homepage, aliases: ['--url', '-u'], banner: '<url>'
+  option :description, aliases: %w[-d --desc], banner: 'TEXT'
+  option :homepage, aliases: %w[--url -u], banner: 'URL'
   option :private, aliases: '-p'
-  option :auto_init, aliases: ['--init', '--auto', '-i']
+  option :auto_init, aliases: %w[--init --auto -i']
   def create(name)
     response = client.create(name, options)
     puts response.html_url, response.ssh_url
@@ -16,7 +16,7 @@ class Repository < Thor
   desc 'delete NAME', 'Delete repository'
   def delete(name)
     succeed = client.delete_repo(name)
-    puts succeed ? 'Repository was succfully deleted' : 'Error'
+    puts succeed ? 'Repository was successfully deleted' : 'Error'
   rescue StandardError => e
     show_error e.message
   end

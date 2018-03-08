@@ -2,13 +2,13 @@ module Gitius
   class Core < Base
     include Gitius::Helpers
 
-    desc 'repository <command>', ''
+    desc 'repository COMMAND', 'Github Repositories'
     subcommand 'repository', Repository
 
-    desc 'gist <command>', ''
+    desc 'gist COMMAND', 'Github Gist'
     subcommand 'gist', Gist
 
-    desc 'whoami', "Return user's github nickname"
+    desc 'whoami', 'Return user\'s github nickname'
     option :name, aliases: '-n', type: :boolean
     def whoami
       name = options[:name] ? user.name : user.login
@@ -17,7 +17,7 @@ module Gitius
       show_error 'Incorrect settings'
     end
 
-    desc 'config', 'Set configurations for using cli'
+    desc 'config', 'Set configurations for using CLI'
     def config(key, value = nil)
       value.nil? ? puts(get_config(key)) : change_config(key, value)
     end
